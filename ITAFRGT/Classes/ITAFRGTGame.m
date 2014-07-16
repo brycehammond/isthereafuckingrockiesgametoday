@@ -7,6 +7,7 @@
 //
 
 #import "ITAFRGTGame.h"
+#import "NSDate+Escort.h"
 
 @implementation ITAFRGTGame
 
@@ -21,7 +22,7 @@ static NSArray *__allGames;
     NSString *fullDate =  [NSString stringWithFormat:@"%@ %@", config[@"date"], config[@"time"]];
     
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    dateFormatter.dateFormat = @"MM/dd/YYY h:mma zzz";
+    dateFormatter.dateFormat = @"MM/dd/yyyy h:mma zzz";
     self.date = [dateFormatter dateFromString:fullDate];
     
     return self;
@@ -46,6 +47,25 @@ static NSArray *__allGames;
     }
     
     return __allGames;
+}
+
++ (NSArray *)futureGames
+{
+    NSMutableArray *futureGames = [[NSMutableArray alloc] init];
+    
+    NSArray *allGames = [ITAFRGTGame allGames];
+    
+    NSDate *startOfDay = [[NSDate date] dateAtStartOfDay];
+    
+    for(ITAFRGTGame *game in allGames)
+    {
+        if([game.date isLaterThanDate:startOfDay])
+        {
+            [futureGames addObject:game];
+        }
+    }
+        
+    return futureGames.copy;
 }
 
 @end

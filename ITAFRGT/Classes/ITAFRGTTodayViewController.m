@@ -8,12 +8,13 @@
 
 #import "ITAFRGTTodayViewController.h"
 #import "ITAFRGTGame.h"
+#import "NSDate+Escort.h"
 
 @interface ITAFRGTTodayViewController ()
+
 @property (weak, nonatomic) IBOutlet UILabel *yesNoLabel;
 @property (weak, nonatomic) IBOutlet UILabel *locationLabel;
 @property (weak, nonatomic) IBOutlet UILabel *detailLabel;
-
 @end
 
 @implementation ITAFRGTTodayViewController
@@ -27,39 +28,46 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    ITAFRGTGame *currentGame = [self todaysGame];
+    
+    ITAFRGTGame *nextGame = [ITAFRGTGame futureGames].firstObject;
+    
+    ITAFRGTGame *currentGame = nil;
+    
+    if([[nextGame.date dateAtStartOfDay] isEqualToDate: [[NSDate date] dateAtStartOfDay]])
+    {
+        currentGame = nextGame;
+    }
+    
     
     if(currentGame)
     {
-        self.yesNoLabel.text = @"YES";
-        self.locationLabel.text = [currentGame.location isEqualToString:@"Coors Field"] ? @"At home" : @"Away";
         NSDateFormatter *timeFormatter = [[NSDateFormatter alloc] init];
         timeFormatter.dateFormat = @"h:mma";
-        
+    
+        self.yesNoLabel.text = @"YES";
+        self.locationLabel.text = [currentGame.location isEqualToString:@"Coors Field"] ? @"At home" : @"Away";
         self.detailLabel.text = [NSString stringWithFormat:@"Rockies play the %@ %@ at %@", currentGame.opponent, [timeFormatter stringFromDate:currentGame.date].lowercaseString, currentGame.location];
     }
     else
     {
+        NSDateFormatter *timeFormatter = [[NSDateFormatter alloc] init];
+        timeFormatter.dateFormat = @"EEEE, M/d h:mma";
+        
         self.yesNoLabel.text = @"NO";
         self.locationLabel.text = @"";
-        self.detailLabel.text = @"";
+        
+        if(nextGame)
+        {
+            self.detailLabel.text = [NSString stringWithFormat:@"Rockies will play the %@ on %@ at %@", nextGame.opponent, [timeFormatter stringFromDate:nextGame.date].lowercaseString, nextGame.location];
+        }
+        else
+        {
+            self.detailLabel.text = @"";
+        }
+        
+        
     }
     
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-- (ITAFRGTGame *)todaysGame
-{
-    NSDate *today = [NSDate date];
-    
-    
-    
-    return nil;
 }
 
 @end

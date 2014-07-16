@@ -17,5 +17,6 @@
 - (id)initWithConfig:(NSDictionary *)config;
 
 + (NSArray *)allGames;
++ (NSArray *)futureGames;
 
 @end
