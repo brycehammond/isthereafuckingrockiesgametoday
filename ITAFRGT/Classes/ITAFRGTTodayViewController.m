@@ -51,14 +51,14 @@
     else
     {
         NSDateFormatter *timeFormatter = [[NSDateFormatter alloc] init];
-        timeFormatter.dateFormat = @"EEEE, M/d h:mma";
+        timeFormatter.dateFormat = @"eeee, M/d h:mma";
         
         self.yesNoLabel.text = @"NO";
         self.locationLabel.text = @"";
         
         if(nextGame)
         {
-            self.detailLabel.text = [NSString stringWithFormat:@"Rockies will play the %@ on %@ at %@", nextGame.opponent, [timeFormatter stringFromDate:nextGame.date].lowercaseString, nextGame.location];
+            self.detailLabel.text = [NSString stringWithFormat:@"Rockies will play the %@ on %@ at %@", nextGame.opponent, [timeFormatter stringFromDate:nextGame.date], nextGame.location];
         }
         else
         {
