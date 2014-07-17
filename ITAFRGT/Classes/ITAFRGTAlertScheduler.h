@@ -12,5 +12,6 @@
 
 + (void)scheduleAlerts;
 + (void)unscheduleAllAlerts;
++ (void)rescheduleAlerts;
 
 @end

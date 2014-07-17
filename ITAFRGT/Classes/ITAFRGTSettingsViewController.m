@@ -7,6 +7,7 @@
 //
 
 #import "ITAFRGTSettingsViewController.h"
+#import "ITAFRGTAlertScheduler.h"
 
 @interface ITAFRGTSettingsViewController ()
 @property (weak, nonatomic) IBOutlet UISwitch *atHomeSwitch;
@@ -34,6 +35,23 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)gameTypeSwitchSet:(UISwitch *)sender
+{
+    if(sender == self.atHomeSwitch)
+    {
+        [[NSUserDefaults standardUserDefaults] setBool:sender.on forKey:ITAFRGTAtHomeAlertKey];
+    }
+    else if(sender == self.awaySwitch)
+    {
+        [[NSUserDefaults standardUserDefaults] setBool:sender.on forKey:ITAFRGTAwayAlertKey];
+    }
+    
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    [ITAFRGTAlertScheduler rescheduleAlerts];
+    
+    
 }
 
 @end

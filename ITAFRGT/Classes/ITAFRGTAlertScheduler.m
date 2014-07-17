@@ -41,4 +41,10 @@
     [[UIApplication sharedApplication] cancelAllLocalNotifications];
 }
 
++ (void)rescheduleAlerts
+{
+    [ITAFRGTAlertScheduler unscheduleAllAlerts];
+    [ITAFRGTAlertScheduler scheduleAlerts];
+}
+
 @end
