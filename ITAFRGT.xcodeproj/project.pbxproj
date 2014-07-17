@@ -25,6 +25,7 @@
 		0213F5E9197625C200155623 /* ITAFRGTGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 0213F5E8197625C200155623 /* ITAFRGTGame.m */; };
 		0213F5EB197625E600155623 /* schedule.json in Resources */ = {isa = PBXBuildFile; fileRef = 0213F5EA197625E600155623 /* schedule.json */; };
 		0213F5EE197655EB00155623 /* ITAFRGTAlertScheduler.m in Sources */ = {isa = PBXBuildFile; fileRef = 0213F5ED197655EB00155623 /* ITAFRGTAlertScheduler.m */; };
+		0213F5F61977923200155623 /* ITAFRGTConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 0213F5F51977923200155623 /* ITAFRGTConstants.m */; };
 		71E5D1808CE445D8B19719F1 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F4894D6C0BA43F6963A1646 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -65,6 +66,8 @@
 		0213F5EA197625E600155623 /* schedule.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = schedule.json; sourceTree = "<group>"; };
 		0213F5EC197655EB00155623 /* ITAFRGTAlertScheduler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ITAFRGTAlertScheduler.h; path = Classes/ITAFRGTAlertScheduler.h; sourceTree = "<group>"; };
 		0213F5ED197655EB00155623 /* ITAFRGTAlertScheduler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ITAFRGTAlertScheduler.m; path = Classes/ITAFRGTAlertScheduler.m; sourceTree = "<group>"; };
+		0213F5F41977923200155623 /* ITAFRGTConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ITAFRGTConstants.h; path = Classes/ITAFRGTConstants.h; sourceTree = "<group>"; };
+		0213F5F51977923200155623 /* ITAFRGTConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ITAFRGTConstants.m; path = Classes/ITAFRGTConstants.m; sourceTree = "<group>"; };
 		0F4894D6C0BA43F6963A1646 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		5053D6FF662A4CC5858E7422 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -133,9 +136,11 @@
 				0213F5DC1976251E00155623 /* View Controllers */,
 				0213F5E3197625A500155623 /* ITAFRGTAppDelegate.h */,
 				0213F5E4197625A500155623 /* ITAFRGTAppDelegate.m */,
+				0213F5F41977923200155623 /* ITAFRGTConstants.h */,
+				0213F5F51977923200155623 /* ITAFRGTConstants.m */,
+				0213F5AB197622E700155623 /* Supporting Files */,
 				0213F5B6197622E700155623 /* Main.storyboard */,
 				0213F5BF197622E700155623 /* Images.xcassets */,
-				0213F5AB197622E700155623 /* Supporting Files */,
 			);
 			path = ITAFRGT;
 			sourceTree = "<group>";
@@ -326,6 +331,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0213F5F61977923200155623 /* ITAFRGTConstants.m in Sources */,
 				0213F5E5197625A500155623 /* ITAFRGTAppDelegate.m in Sources */,
 				0213F5B1197622E700155623 /* main.m in Sources */,
 				0213F5E21976259A00155623 /* ITAFRGTTodayViewController.m in Sources */,

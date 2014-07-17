@@ -11,5 +11,6 @@
 @interface ITAFRGTAlertScheduler : NSObject
 
 + (void)scheduleAlerts;
++ (void)unscheduleAllAlerts;
 
 @end

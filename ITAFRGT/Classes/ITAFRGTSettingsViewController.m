@@ -9,6 +9,8 @@
 #import "ITAFRGTSettingsViewController.h"
 
 @interface ITAFRGTSettingsViewController ()
+@property (weak, nonatomic) IBOutlet UISwitch *atHomeSwitch;
+@property (weak, nonatomic) IBOutlet UISwitch *awaySwitch;
 
 @end
 
@@ -18,6 +20,14 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    self.atHomeSwitch.on = [[NSUserDefaults standardUserDefaults] boolForKey:ITAFRGTAtHomeAlertKey];
+    self.awaySwitch.on = [[NSUserDefaults standardUserDefaults] boolForKey:ITAFRGTAwayAlertKey];
 }
 
 - (void)didReceiveMemoryWarning

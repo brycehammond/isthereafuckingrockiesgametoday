@@ -12,7 +12,16 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+
+    //Set up some defaults on first launch
+    if(NO == [[NSUserDefaults standardUserDefaults] boolForKey:ITAFRGTLaunchedKey])
+    {
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:ITAFRGTAtHomeAlertKey];
+        [[NSUserDefaults standardUserDefaults] setBool:NO forKey:ITAFRGTAwayAlertKey];
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:ITAFRGTLaunchedKey];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
+    
     return YES;
 }
 							
