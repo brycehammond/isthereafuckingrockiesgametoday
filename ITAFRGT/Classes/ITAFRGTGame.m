@@ -28,6 +28,16 @@ static NSArray *__allGames;
     return self;
 }
 
+- (BOOL)isHomeGame
+{
+    return [self.location isEqualToString:@"Coors Fields"];
+}
+
+- (BOOL)isAwayGame
+{
+    return ! [self isHomeGame];
+}
+
 + (NSArray *)allGames
 {
  

@@ -14,6 +14,9 @@
 @property (nonatomic, strong) NSString *opponent;
 @property (nonatomic, strong) NSDate *date;
 
+@property (nonatomic, readonly) BOOL isAwayGame;
+@property (nonatomic, readonly) BOOL isHomeGame;
+
 - (id)initWithConfig:(NSDictionary *)config;
 
 + (NSArray *)allGames;

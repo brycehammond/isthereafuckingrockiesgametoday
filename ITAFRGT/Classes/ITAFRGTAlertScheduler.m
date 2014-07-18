@@ -18,6 +18,9 @@
     
     NSUInteger alertedGameCount = 0;
     
+    NSDateFormatter *timeFormatter = [[NSDateFormatter alloc] init];
+    timeFormatter.dateFormat = @"h:mma";
+    
     for(ITAFRGTGame *game in futureGames)
     {
         if(alertedGameCount >= 64)
@@ -29,6 +32,21 @@
         {
             continue;
         }
+        
+        //don't schedule an alert if we don't want that type
+        if((game.isHomeGame && NO == [[NSUserDefaults standardUserDefaults] boolForKey:ITAFRGTAtHomeAlertKey]) ||
+           (game.isAwayGame && NO == [[NSUserDefaults standardUserDefaults] boolForKey:ITAFRGTAwayAlertKey]))
+        {
+            continue;
+        }
+        
+        
+        UILocalNotification *reminder = [[UILocalNotification alloc] init];
+        reminder.fireDate = [self alarmDateForGame:game];
+        reminder.hasAction = YES;
+        reminder.alertAction = @"Get the game";
+        reminder.alertBody = [NSString stringWithFormat:@"Rockies play the %@ at %@", game.opponent, [timeFormatter stringFromDate:game.date].lowercaseString];
+        [[UIApplication sharedApplication] scheduleLocalNotification:reminder];
         
         ++alertedGameCount;
         
@@ -45,6 +63,16 @@
 {
     [ITAFRGTAlertScheduler unscheduleAllAlerts];
     [ITAFRGTAlertScheduler scheduleAlerts];
+}
+
++ (NSDate *)alarmDateForGame:(ITAFRGTGame *)game
+{
+    NSDate *startOfDay = [game.date dateAtStartOfDay];
+    
+    //Add to 10 am
+    NSDate *fireDate = [startOfDay dateByAddingHours:10];
+    
+    return fireDate;
 }
 
 @end
