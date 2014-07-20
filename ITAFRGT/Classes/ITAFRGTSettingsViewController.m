@@ -17,11 +17,6 @@
 
 @implementation ITAFRGTSettingsViewController
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
-}
 
 - (void)viewWillAppear:(BOOL)animated
 {
@@ -29,12 +24,6 @@
     
     self.atHomeSwitch.on = [[NSUserDefaults standardUserDefaults] boolForKey:ITAFRGTAtHomeAlertKey];
     self.awaySwitch.on = [[NSUserDefaults standardUserDefaults] boolForKey:ITAFRGTAwayAlertKey];
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (IBAction)gameTypeSwitchSet:(UISwitch *)sender
