@@ -22,6 +22,8 @@
         [[NSUserDefaults standardUserDefaults] synchronize];
     }
     
+    [[UITabBar appearance] setTintColor:[UIColor redColor]];
+    
     return YES;
 }
 							
