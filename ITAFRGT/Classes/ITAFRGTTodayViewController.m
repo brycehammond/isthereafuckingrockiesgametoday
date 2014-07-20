@@ -29,7 +29,7 @@
 {
     [super viewWillAppear:animated];
     
-    ITAFRGTGame *nextGame = [ITAFRGTGame futureGames].firstObject;
+    ITAFRGTGame *nextGame = [ITAFRGTGame nextGame];
     
     ITAFRGTGame *currentGame = nil;
     

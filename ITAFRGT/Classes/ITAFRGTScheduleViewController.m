@@ -31,6 +31,14 @@
 {
     [super viewDidLoad];
     self.allGames = [ITAFRGTGame allGames];
+    self.tableView.contentInset = UIEdgeInsetsMake(20, 0, 0, 0);
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    NSUInteger scrollToIndex = [self.allGames indexOfObject:[ITAFRGTGame nextGame]];
+    [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForItem:scrollToIndex inSection:0] atScrollPosition:UITableViewScrollPositionMiddle animated:NO];
 }
 
 

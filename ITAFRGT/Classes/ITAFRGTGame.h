@@ -21,5 +21,6 @@
 
 + (NSArray *)allGames;
 + (NSArray *)futureGames;
++ (ITAFRGTGame *)nextGame;
 
 @end

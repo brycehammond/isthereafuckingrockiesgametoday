@@ -78,4 +78,9 @@ static NSArray *__allGames;
     return futureGames.copy;
 }
 
++ (ITAFRGTGame *)nextGame
+{
+    return [[self class] futureGames].firstObject;
+}
+
 @end
