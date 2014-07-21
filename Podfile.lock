@@ -1,10 +1,13 @@
 PODS:
   - NSDate-Escort (1.4.0)
+  - UIColor-Utilities (1.0.1)
 
 DEPENDENCIES:
   - NSDate-Escort (~> 1.4.0)
+  - UIColor-Utilities
 
 SPEC CHECKSUMS:
   NSDate-Escort: 321f198e6a7a4573541561b42d3163a0ea54ea1b
+  UIColor-Utilities: 3f13aebe447f5e19c8d3aa18c194c53116b23537
 
 COCOAPODS: 0.33.1

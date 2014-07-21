@@ -7,7 +7,13 @@
 //
 
 #import "UIColor+ITAFRGT.h"
+#import "UIColor+Expanded.h"
 
 @implementation UIColor (ITAFRGT)
+
++ (UIColor *)rockiesPurple
+{
+    return [UIColor colorWithHexString:@"333366"];
+}
 
 @end

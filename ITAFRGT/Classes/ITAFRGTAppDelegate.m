@@ -22,7 +22,7 @@
         [[NSUserDefaults standardUserDefaults] synchronize];
     }
     
-    [[UITabBar appearance] setTintColor:[UIColor redColor]];
+    [self setupAppearanceProxies];
     
     return YES;
 }
@@ -52,6 +52,11 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+- (void)setupAppearanceProxies
+{
+    [[UITabBar appearance] setTintColor:[UIColor rockiesPurple]];
 }
 
 @end

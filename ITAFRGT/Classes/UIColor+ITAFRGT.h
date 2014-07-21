@@ -10,4 +10,6 @@
 
 @interface UIColor (ITAFRGT)
 
++ (UIColor *)rockiesPurple;
+
 @end
